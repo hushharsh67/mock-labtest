@@ -14,10 +14,9 @@ import csv
 ##########################################################
 def get_top_student(students):
     top = None
-
-    # Add your implementation from here
-    #HINT: Loop through students and compare scores
-
+    for s in students:
+        if top is None or s['score'] > top['score']:
+            top=s
 
     return top
 
@@ -31,11 +30,11 @@ def get_top_student(students):
 ##################################################################
 def calc_average_score(students):
     average = 0
-
-    # Add your implementation from here
-    #HINT: Add up all the scores, then divide by len(students)
-
-
+    total =0
+    for s in students:
+        total += s['score']
+    if len(students) >0:
+        average = total /len(students)
     return average
 
 ##################################################################
@@ -49,8 +48,9 @@ def calc_average_score(students):
 def count_passed(students):
     count = 0
 
-    # Add your implementation from here
-
+    for s in students:
+        if s['score'] >= 50:
+            count += 1
 
     return count
 
